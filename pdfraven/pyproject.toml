@@ -3,7 +3,7 @@ name = "pdfraven"
 version = "3.2.0"
 description = "Advanced, multi-threaded PDF password recovery tool."
 authors = [
-    { name = "Ecnord", email = "noxel.ecnord@example.com" },
+    { name = "Ecnord", email = "derrickom005@gmail.com" }, # Updated email
 ]
 license = { text = "MIT" }
 readme = "README.md"
@@ -14,12 +14,12 @@ dependencies = [
 ]
 
 [project.scripts]
-pdfraven = "pdfraven.main:main"
+pdfraven = "main:main" # Changed to main:main as it's the root now
 
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["pdfraven*"]
+where = ["."] # Search for packages in the current directory
+include = ["*"] # Include all modules in the current directory as the package

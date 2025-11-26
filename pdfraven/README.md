@@ -21,8 +21,8 @@ PDFRaven requires Python 3.8 or higher.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/NoxelEcnord/PDFRaven.git
-    cd PDFRaven
+    git clone https://github.com/NoxelEcnord/PDF-RAVEN.git
+    cd PDF-RAVEN
     ```
 
 2.  **Install dependencies:**
@@ -75,18 +75,18 @@ pdfraven -f my_document.pdf numeric 6  # Checks 000000-999999
 #### 4. Date-Based Attack (DDMMYYYY)
 Checks all dates in `DDMMYYYY` format for a year range.
 ```bash
-pdfraven -f my_document.pdf date 1990 2023
+pdfraven -f doc.pdf date 1990 2023
 
 # New options for date format and separator
-pdfraven -f my_document.pdf date 1990 2023 --format YYYYMMDD --separator -
+pdfraven -f doc.pdf date 1990 2023 --format YYYYMMDD --separator -
 ```
 
 #### 5. Custom Query Attack
 Smart pattern generation using a prefix, number range, and suffix.
-*   Format: `PREFIX{MIN-MAX}SUFFIX`
-*   Use `--add-preceding-zeros` to pad numbers with leading zeros.
+*   Format: PREFIX{MIN-MAX}SUFFIX
+*   Use `--add-preceding-zeros` to pad numbers to match max digit length.
 ```bash
-pdfraven -f my_document.pdf custom-query "EMPLOYEE{100-500}-DATA" --add-preceding-zeros
+pdfraven -f doc.pdf custom-query "EMPLOYEE{100-500}-DATA" --add-preceding-zeros
 ```
 
 #### 6. Brute-Force Attack (Mask-based)
@@ -100,21 +100,21 @@ Advanced brute-force with a defined charset and length mask.
 *   `a`: all common characters (`wWdsb`)
 *   Length can be specified as `{length}` or `{min_length,max_length}`.
 ```bash
-pdfraven -f my_document.pdf brute "w{4}d{2}"  # e.g., 'abcd12'
-pdfraven -f my_document.pdf brute "W{1}w{3,5}d{1}" # e.g., 'Aabc1', 'Aabcd1', 'Aabcde1'
+pdfraven -f doc.pdf brute "w{4}d{2}"  # e.g., 'abcd12'
+pdfraven -f doc.pdf brute "W{1}w{3,5}d{1}" # e.g., 'Aabc1', 'Aabcd1', 'Aabcde1'
 ```
 
 #### 7. Hybrid Attack
 Combines two masks or a wordlist with a mask.
 ```bash
-pdfraven -f my_document.pdf hybrid mywordlist.txt "d{4}" # Tries word from list + 4 digits
-pdfraven -f my_document.pdf hybrid "admin" "d{2,4}" # Tries admin00, admin000, admin0000
+pdfraven -f doc.pdf hybrid mywordlist.txt "d{4}" # Tries word from list + 4 digits
+pdfraven -f doc.pdf hybrid "admin" "d{2,4}" # Tries admin00, admin000, admin0000
 ```
 
 #### 8. Custom Brute-Force
 Brute-force with a user-defined character set and length range.
 ```bash
-pdfraven -f my_document.pdf custom-brute --charset "abc!@#" --min-length 1 --max-length 5
+pdfraven -f doc.pdf custom-brute --charset "abc!@#" --min-length 1 --max-length 5
 ```
 
 ## Contributing

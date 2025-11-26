@@ -1,7 +1,6 @@
-# pdfraven/main.py
-
 import argparse
 import multiprocessing
+import os
 import sys
 import pikepdf
 from pathlib import Path

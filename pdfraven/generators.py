@@ -48,7 +48,7 @@ def estimate_total_custom_brute(charset, min_len, max_len):
 def gen_wordlist(path, start_after=None):
     found_start = not bool(start_after)
     with open(path, 'r', encoding='latin-1', errors='ignore') as f:
-        for line in f:
+        for line := f.readlines():  # Using walrus operator for Python 3.8+
             stripped_line = line.strip()
             if not found_start and stripped_line == start_after:
                 found_start = True

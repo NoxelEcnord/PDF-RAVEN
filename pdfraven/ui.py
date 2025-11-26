@@ -43,7 +43,7 @@ def print_banner():
     console.rule(style="banner") # New
     console.print(Text(banner_text, style="cyan"), justify="center")
     console.print(Text(sub_text, style="bold blue"), justify="center") # Changed style to bold blue
-    console.print()
+    console.print() # Add an extra line for spacing
     console.rule(style="banner") # New
     console.print() # Add an extra line for spacing
 
@@ -98,7 +98,7 @@ can resume interrupted sessions.
 [header]DATABASE[/header]
 Passwords found are stored in '[bold]found_passwords.json[/bold]'. PDFRaven checks this file 
 before starting any attack. If the PDF hasn't changed, it unlocks instantly.
-    """
+    "
     console.print(manual)
     sys.exit(0)
 
@@ -124,7 +124,7 @@ def print_result(password, pdf_path, decrypted_path):
             expand=False
         )
         console.print(success_panel)
-        log(f"Password saved to database.", "success")
+        log("Password saved to database.", "success")
         if decrypted_path:
             log(f"Decrypted file saved: [bold]{decrypted_path}[/bold]", "success")
         else:
